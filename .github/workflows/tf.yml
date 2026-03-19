@@ -20,11 +20,8 @@ jobs:
             - name: Terraform Init
               run: terraform init
             
-            - name: Terraform Import
-              run: terraform import aws_s3_bucket.example 921292479940-julian-c
-
             - name: Terraform Plan
-              run: terraform plan
+              run: terraform plan -out tfplan
             
             - name: Terraform Apply
-              run: terraform apply -auto-approve
+              run: terraform apply tfplan
